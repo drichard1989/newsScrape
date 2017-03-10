@@ -5,6 +5,7 @@ var homeController = require ("../controller/homeController.js");
 module.exports = function (app){
     //Right now, just to see if my paths were correct, I have created a function called grabALl inside of the controller, and am calling it here, and it will console that graball is Firing. 
     app.get("/", homeController.grabAll, function (request, response){
+        console.log("")
         //Here I am trying to render the main handlebars file so that I can see my page on the browser. 
         response.render("index", {});
     });
