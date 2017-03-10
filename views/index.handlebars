@@ -1,1 +1,16 @@
-<p>This is a test</p>
+
+
+ {{#each element}}
+            {{!--Here, we are stating that if the burger is not devoured, it will populate here. --}}
+
+        
+      
+            <div class="container">
+
+                <div class="panel panel-default">
+                <div class="panel-heading">{{this.title}}</div>
+                <div class="panel-body">{{this.link}}</div>
+                </div>
+            </div>
+
+  {{/each}}
