@@ -1,0 +1,29 @@
+{
+  "name": "newsscrape",
+  "version": "1.0.0",
+  "description": "This is the NPM Package for the NewsScrape application. ",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drichard1989/newsScrape.git"
+  },
+  "author": "Dylan Clay Richard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/drichard1989/newsScrape/issues"
+  },
+  "homepage": "https://github.com/drichard1989/newsScrape#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "cheerio": "^0.22.0",
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0",
+    "method-override": "^2.3.7",
+    "mongojs": "^2.4.0",
+    "mongoose": "^4.8.6",
+    "request": "^2.81.0"
+  }
+}
