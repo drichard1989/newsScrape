@@ -6,8 +6,6 @@
         })
         .done(function(scrapedData){
 
-          //Why you no work
-           res.render("index", {element: articles});
         });
 
  });
