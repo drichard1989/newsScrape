@@ -49,6 +49,7 @@ app.set('view engine', 'handlebars');
 app.set('trust proxy', '1');
 
 require("./routes/homeRoute.js")(app);
+require("./routes/dataRoute.js")(app);
         
 
 app.listen(PORT, function(){
