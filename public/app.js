@@ -1,16 +1,13 @@
  $("#scraperButton").on("click", function(){
-          console.log("Button Click Working");
-          $.get(window.location.origin + '/data').done(function(scrapedData) {
-
-            console.log(scrapedData);
-          });
-        /*$.get({
+          
+        $.ajax({
           method: "GET",
           url: window.location.origin + "/data",
         })
         .done(function(scrapedData){
 
+          //Why you no work
            res.render("index", {element: articles});
         });
-*/
+
  });
