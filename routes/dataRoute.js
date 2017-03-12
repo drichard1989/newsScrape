@@ -34,6 +34,7 @@ module.exports = function (app){
                 });
         //Why you no work?
         res.render("index", {element: articles});
+        // res.render("partials/returnedArticles", {element: articles});
         // res.json(articles);
         console.log("\nARTICLES");
         console.log(articles);
