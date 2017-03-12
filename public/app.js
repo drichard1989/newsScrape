@@ -6,7 +6,8 @@
         })
         .done(function(scrapedData){
           for(i=0; i<scrapedData.length; i++){
-
+            console.log(scrapedData[i].title);
+            console.log(scrapedData[i].link);
             console.log("Begin scraping");
             // inside #panelContainer, we are going to first append a panel heading div with the heading text, and then we are goign to append the panelText. 
             $("#panelContainer").append("<div class='panel-heading>" + scrapedData[i].title + "</div>");

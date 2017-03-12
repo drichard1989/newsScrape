@@ -36,8 +36,8 @@ module.exports = function (app){
         res.render("index", {element: articles});
         // res.render("partials/returnedArticles", {element: articles});
         // res.json(articles);
-        console.log("\nARTICLES");
-        console.log(articles);
+        // console.log("\nARTICLES");
+        // console.log(articles);
         });
         console.log("route being called");
         //Here I am trying to render the main handlebars file so that I can see my page on the browser. 
