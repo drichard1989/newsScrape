@@ -33,7 +33,7 @@ module.exports = function (app){
                 
                 });
         //Why you no work?
-        res.render("index", {element: articles});
+        res.json(articles);
         // res.render("partials/returnedArticles", {element: articles});
         // res.json(articles);
         // console.log("\nARTICLES");
