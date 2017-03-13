@@ -7,7 +7,7 @@ $(document).ready(function () {
     })
       //After the data is returned as a json, the function below takes the scrapedData, and for each instance of it, appends it to the DOM in the panelContainer. 
       .done(function (scrapedData) {
-        if (scrapedData !== "No new Articles"){
+        if (scrapedData !== "No new Articles") {
           for (i = 0; i < scrapedData.length; i++) {
             console.log(scrapedData[i].title);
             console.log(scrapedData[i].link);
@@ -60,7 +60,7 @@ $(document).ready(function () {
             $('#panelContainer').append(newPanelDiv);
 
           }
-        }else{
+        } else {
           $('#noNewArticlesModal').modal('toggle');
         }
       });
@@ -68,11 +68,15 @@ $(document).ready(function () {
 
   $(document).on('click', '.save-article', function () {
 
+    //Here, we are creating a variable equal to the id of the object in the database, so that we can use that id in a post route to update the value of the saved value in the db for that particular document when the save button is clicked. 
+    var id = $(this).parent().parent().attr('id');
+    console.log("Id from save-article section in app.js" + id);
     // console.log({title: title, link: link});
     $(this).parent().parent().remove();
-    // console.log({title: title, link: link});
-    $.post('/saveNewArticle' ).done(function (postedData) {
-      console.log(postedData);
+
+
+    $.post('/saveNewArticle', {_id: id}).done(function (postedData) {
+      console.log("postedData parameter from app.js" + postedData)
     });
   });
 })

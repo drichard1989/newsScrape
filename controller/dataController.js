@@ -37,10 +37,14 @@ function scraperFunction(req, res) {
 
         // Here, we are comparing the articles that are being looped through to the articles in the database. 
         Article.insertMany(result, function (err, doc) {
-            if (err) res.json("No new Articles");
-            //If what is being returned is not equal to an array, then it is not a new article. 
-            console.log(doc);
-            res.json(doc);
+            if (err) {
+                console.log(err);
+                res.json("No new Articles");
+            } else {
+                //If what is being returned is not equal to an array, then it is not a new article. 
+                // console.log(doc);
+                res.json(doc);
+            }
             //If it is a new article, we are saving it to the database using a function that is being declared below. 
         }); //End of insertMany
     });//End of request
@@ -49,7 +53,7 @@ function scraperFunction(req, res) {
 function displayUnsavedArticles(req, res) {
     Article.find({ saved: false }, function (err, doc) {
         if (err) throw err;
-        console.log(doc);
+        // console.log(doc);
         res.render('index', { article: doc });
     });
 }

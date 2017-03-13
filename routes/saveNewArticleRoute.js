@@ -1,5 +1,5 @@
 var saveNewArticleController = require("../controller/saveNewArticleController.js");
 
 module.exports = function(app){
-    // app.post("/saveNewArticle", saveNewArticleController.saveNewArticle)
+    app.post("/saveNewArticle", saveNewArticleController.saveNewArticle)
 };
