@@ -1,13 +1,13 @@
 // Requires express npm package
-const express = require('express');
+var express = require('express');
 // Requires the request NPM package, which allows for us to make calls to http addresses
-const request = require('request');
+var request = require('request');
 
 //Requires bodyparser npm package, which parses (analyzes) incoming objects. 
-const bodyParser = require('body-parser');
+var bodyParser = require('body-parser');
 
 //Requires the cheerio scraper npm package
-const cheerio = require('cheerio');
+var cheerio = require('cheerio');
 
 //Allows us to query the mongoDB with calls. 
 // The bodyParser object exposes various factories to create middlewares. 
@@ -15,20 +15,26 @@ const cheerio = require('cheerio');
 // All middlewares will populate the req.body property with the parsed body, 
 //or an empty object ({}) if there was no body to parse (or an error was returned).
 // var mongojs = require("mongojs");
-const mongoose = require('mongoose');
+var mongoose = require('mongoose');
+
+var Note = require("./models/Note.js");
+var Article = require("./models/Article.js")
 
 //Requiring Handlebars
-const exphbs = require('express-handlebars');
+var exphbs = require('express-handlebars');
+
 
 //Allows me to see the database. Need to change this for MongoDb
 // var db = require("./models");
 //Requires method-override npm package, which lets you use HTTP verbs such as 
 //PUT or DELETE in places where the client doesn't support it.
-const methodOverride = require('method-override');
+var methodOverride = require('method-override');
+
+mongoose.Promise = global.Promise;
 
 // Sets variable app to the express method
-const app = express();
-const PORT = process.env.PORT || 8080;
+var app = express();
+var PORT = process.env.PORT || 8080;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -38,6 +44,20 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 // Creating static directories
 app.use(express.static('public'));
 app.use(methodOverride('method'));
+
+mongoose.connect("mongodb://localhost/newsScraper");
+var db = mongoose.connection;
+// Show any mongoose errors
+
+db.on("error", function(error) {
+  console.log("Mongoose Error: ", error);
+});
+
+// Once logged in to the db through mongoose, log a success message
+db.once("open", function() {
+  console.log("Mongoose connection successful.");
+});
+
 
 
 
@@ -51,6 +71,7 @@ app.set('trust proxy', '1');
 require("./routes/homeRoute.js")(app);
 require("./routes/dataRoute.js")(app);
 require("./routes/savedArticlesRoute.js")(app);
+
         
 
 app.listen(PORT, function(){
