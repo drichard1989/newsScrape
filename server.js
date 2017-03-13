@@ -71,6 +71,7 @@ app.set('trust proxy', '1');
 require("./routes/homeRoute.js")(app);
 require("./routes/dataRoute.js")(app);
 require("./routes/savedArticlesRoute.js")(app);
+require("./routes/saveNewArticleRoute.js")(app);
 
         
 

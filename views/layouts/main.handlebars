@@ -36,7 +36,7 @@
           <ul class="nav navbar-nav">
             <li><a href="#">Home</a></li>
             <li><a href="#about">Saved Articles</a></li>
-            <li ><a href="#"id="scraperButton">Scrape New Articles</a></li>
+            {{!--<li ><a href="#"id="scraperButton">Scrape New Articles</a></li>--}}
           </ul>
 
         </div><!--/.nav-collapse -->
@@ -46,26 +46,31 @@
 
 
 
-  <div class="jumbotron" id="jumbotronText">
-    <div class="container">
-      <h1 class="display-3">AppleInsider Scraper</h1>
-      <p class="lead">At AppleInsider Scraper, you can do everything you can do at AppleInsider, but do it here instead. Simply click the scraper button at the top of the page, and load the articles from AppleInsider. You can also comment on those articles as well.</p>
-      <hr class="my-4">
-      <p>Why reinvent the wheel? Because we can.</p>
-    </div>
-  </div>
-
   {{{ body }}}
- <div class="container" id="panelContainer">
-            {{!--Here, we are stating that if the burger is not devoured, it will populate here. --}}
-    
-      
-
-  </div>
 
 
-  <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+<div id="noNewArticlesModal" class="modal fade" role="dialog" style="text-align: center;">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h2 class="modal-title"><strong>We're sorry!</strong></h2>
+            </div>
+            <div class="modal-body">
+                <h3>There are no new articles available</h3>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" id="save-note-btn" data-dismiss="modal">DISMISS</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+  <script src="https://code.jquery.com/jquery.js"></script>
   <script src="app.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
   </body>
   
 
