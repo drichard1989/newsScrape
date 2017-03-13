@@ -66,17 +66,25 @@ $(document).ready(function () {
       });
   });
 
-  $(document).on('click', '.save-article', function () {
-
+  // We are saving an article on the click for a button that has a class of save-article, which has been assigned to each button using handlebars. 
+  $(document).on('click', '.save-article', function (req, res) {
     //Here, we are creating a variable equal to the id of the object in the database, so that we can use that id in a post route to update the value of the saved value in the db for that particular document when the save button is clicked. 
     var id = $(this).parent().parent().attr('id');
     console.log("Id from save-article section in app.js" + id);
     // console.log({title: title, link: link});
+    //Here we are removing the content from the page. We don't want the user to be able to see the content they have saved. 
     $(this).parent().parent().remove();
+    //here, we are creating a post route that uses the route saveNewArticle, and takes the id that we took above, and passes that in to the route to be used in the controller. 
+    $.post('/saveNewArticle', { _id: id }).done(function (postedData) {
+      // console.log("postedData parameter from app.js" + postedData)
+    });
+  });
 
+  //Here, we are performing an event listener on the element with a class of savedArticles, which is the navbar button. 
+  $(document).on('click', '.savedArticles', function (req, res) {
+    // Here, we are creating an ajax request using the route savedarticles, and once that route is visited, we have further instructions in the savedArticlesController.js file. 
+    $.get('/savedarticles').done(function (data) {
 
-    $.post('/saveNewArticle', {_id: id}).done(function (postedData) {
-      console.log("postedData parameter from app.js" + postedData)
     });
   });
 })

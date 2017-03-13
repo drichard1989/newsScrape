@@ -5,13 +5,12 @@ var Note = require('../models/Article.js');
 
 
 
-// An empty array to save the data that we'll scrape
-
-
-
+//Created a function to scrape the articles from AppleInsider.com, and after that, render them to the page. 
 function scraperFunction(req, res) {
+    //created an empty array to store the articles in. 
     var result = [];
     request('http://www.appleinsider.com', function (error, response, html) {
+        //This is going to display a modal if there are no new articles to display. 
         if (error) res.send("No new Articles");
         // Load the HTML into cheerio and save it to a variable
         // '$' becomes a shorthand for cheerio's selector commands, much like jQuery's '$'
@@ -50,6 +49,7 @@ function scraperFunction(req, res) {
     });//End of request
 }//End of scraper scraperFunction
 
+//Here we are displaying any articles that have a saved value of false to the index.handlebars page. 
 function displayUnsavedArticles(req, res) {
     Article.find({ saved: false }, function (err, doc) {
         if (err) throw err;
@@ -58,6 +58,7 @@ function displayUnsavedArticles(req, res) {
     });
 }
 
+//Here, we are creating a function that saves an article. This only takes in the scraped article, and then uses the save method to save it to the DB. 
 function saveArticle(scrapedArticle) {
     var newArticle = new Article(scrapedArticle);
 
@@ -67,6 +68,7 @@ function saveArticle(scrapedArticle) {
     });
 };
 
+//Exporting all my functions for cross file use. 
 module.exports = {
     scraperFunction: scraperFunction,
     displayUnsavedArticles: displayUnsavedArticles,
