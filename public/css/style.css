@@ -1,3 +1,7 @@
+* {
+  border-radius: 0 !important;
+}
+
 .brand-centered {
   display: flex;
   justify-content: center;
@@ -13,6 +17,37 @@
 .navbar-toggle {
     z-index: 1;
 }
+
+#scraperButton {
+    background-color: black; 
+    color: white; 
+    border-color: black;
+}
+
+#saveArticleButton {
+  background-color: slategrey;
+  color: white;
+  border-color: slategrey;
+}
+
+#addNoteButton {
+  background-color: dimgrey;
+  color: white;
+  border-color: dimgrey;
+}
+
+#deleteArticleButton {
+  background-color: indianred;
+  color: white;
+  border-color: indianred;
+}
+
+#save-note-btn {
+  background-color: dimgrey;
+  color: white;
+  border-color: dimgrey;
+}
+
 
 
 
@@ -53,4 +88,17 @@ body {
 
 #jumbotronText{
   color: white;
+}
+
+.panel-default>.panel-heading {
+  color: white;
+  background-color: black;
+
+}
+
+a {
+  color: white;
+}
+a:hover {
+  color: grey;
 }
