@@ -5,10 +5,10 @@ var request = require('request');
 
 var dataController = require('../controller/dataController.js');
 
-module.exports = function (app){
+module.exports = function (app) {
     //On a get request for the route /data, the scraper is fired. Right now, we are calling this in the app.js file in the public directory. 
     app.get("/data", dataController.scraperFunction);
 
-        
-       
-    };
+
+
+};
