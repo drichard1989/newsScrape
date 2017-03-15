@@ -17,7 +17,7 @@ var cheerio = require('cheerio');
 // var mongojs = require("mongojs");
 var mongoose = require('mongoose');
 
-var Note = require("./models/Note.js");
+var Note = require("./models/Notes.js");
 var Article = require("./models/Article.js")
 
 //Requiring Handlebars
@@ -30,7 +30,7 @@ var exphbs = require('express-handlebars');
 //PUT or DELETE in places where the client doesn't support it.
 var methodOverride = require('method-override');
 
-mongoose.Promise = global.Promise;
+mongoose.Promise = Promise;
 
 // Sets variable app to the express method
 var app = express();
@@ -45,7 +45,7 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(express.static('public'));
 app.use(methodOverride('method'));
 
-mongoose.connect("mongodb://localhost/newsScraper");
+mongoose.connect("mongodb://heroku_w6tfjjxj:ap2mtlhaq025poe74ta191l5i3@ds127300.mlab.com:27300/heroku_w6tfjjxj");
 var db = mongoose.connection;
 // Show any mongoose errors
 
@@ -75,7 +75,7 @@ require("./routes/saveNewArticleRoute.js")(app);
 require("./routes/articleNotesRoute.js")(app);
 require("./routes/deleteArticleRoute.js")(app);
 require("./routes/saveNoteRoute.js")(app);
-// require("./routes/deleteNoteRoute.js")(app);
+require("./routes/deleteNoteRoute.js")(app);
 
 
         

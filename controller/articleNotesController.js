@@ -1,5 +1,5 @@
 var Article = require('../models/Article.js');
-var Note = require('../models/Article.js');
+var Note = require('../models/Notes.js');
 
 
 function findNotes(req, res) {
@@ -10,10 +10,11 @@ function findNotes(req, res) {
     Article.find({ _id: req.params.id }, function (err, doc) {
         if (err) throw err;
 
-        console.log("Doc [0].notes in articleNotesController: " + doc[0].notes);
-        Note.find({ _id: { $in: doc[0].notes } }, function (err, doc) {
-            console.log("doc" + doc);
-            res.send(doc);
+        console.log("Note ID " + doc[0].note);
+        Note.find({ _id: { $in: doc[0].note } }, function (err, doc) {
+            // Doc has no content. 
+            console.log("Note Aray: " + doc);
+            res.send(doc);  
         })
     });
 }

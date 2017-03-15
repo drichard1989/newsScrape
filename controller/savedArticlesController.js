@@ -1,5 +1,5 @@
 var Article = require('../models/Article.js');
-var Note = require('../models/Note.js');
+var Note = require('../models/Notes.js');
 
 //Create the function for grabbing the saved articles, and displaying them in the savedArticles.handlebars file. 
 function grabSavedArticles(req, res) {

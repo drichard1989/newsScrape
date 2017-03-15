@@ -1,7 +1,7 @@
 var cheerio = require('cheerio');
 var request = require('request');
 var Article = require('../models/Article.js');
-var Note = require('../models/Article.js');
+var Note = require('../models/Notes.js');
 
 
 
