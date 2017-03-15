@@ -10,9 +10,9 @@ function findNotes(req, res) {
     Article.find({ _id: req.params.id }, function (err, doc) {
         if (err) throw err;
 
-        console.log(doc[0].notes);
+        console.log("Doc [0].notes in articleNotesController: " + doc[0].notes);
         Note.find({ _id: { $in: doc[0].notes } }, function (err, doc) {
-            console.log(doc);
+            console.log("doc" + doc);
             res.send(doc);
         })
     });

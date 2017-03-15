@@ -74,7 +74,7 @@ require("./routes/savedArticlesRoute.js")(app);
 require("./routes/saveNewArticleRoute.js")(app);
 require("./routes/articleNotesRoute.js")(app);
 require("./routes/deleteArticleRoute.js")(app);
-require("./routes/addNoteRoute.js")(app);
+require("./routes/saveNoteRoute.js")(app);
 // require("./routes/deleteNoteRoute.js")(app);
 
 

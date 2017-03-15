@@ -1,7 +1,7 @@
 var Article = require('../models/Article.js');
 var Note = require('../models/Note.js');
 
-function addNote(req, res) {
+function saveNote(req, res) {
 
     // console.log(req.body);
     console.log( "req.body.note: " + req.body.note);
@@ -19,5 +19,5 @@ function addNote(req, res) {
 }
 
 module.exports = {
-    addNote: addNote
+    saveNote: saveNote
 }

@@ -7,7 +7,7 @@ $(document).ready(function () {
         $('#article-note-container').attr('data-note-id', id);
         console.log("Id of note" + id);
         $.ajax({ url: '/articleNotes/' + id }).done(function (notes) {
-            console.log(notes);
+            console.log("Note: " + notes);
             $('#articleID').text(id);
             if (notes.length === 0) {
                 $('#article-note-container').text("No notes for this article yet.");
@@ -36,8 +36,9 @@ $(document).ready(function () {
     $(document).on('click', '#save-note-btn', function () {
         var new_note = $('#new-note').val();
         var id = $(this).attr('data-note-id');
+        console.log("Id of article: " + id);
         console.log(new_note);
-        $.post('/addNote', { note: new_note, id: id }, function (response) {
+        $.post('/saveNote', { note: new_note, id: id }, function (response) {
             console.log(response);
             $('#article-note-container').empty();
             $('#articleID').empty();
